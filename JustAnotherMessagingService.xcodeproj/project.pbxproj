@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		FF2491C41D8F47260065A308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491C31D8F47260065A308 /* AppDelegate.swift */; };
-		FF2491C61D8F47260065A308 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491C51D8F47260065A308 /* ViewController.swift */; };
+		FF2491C61D8F47260065A308 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491C51D8F47260065A308 /* LoginViewController.swift */; };
 		FF2491C91D8F47260065A308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2491C71D8F47260065A308 /* Main.storyboard */; };
 		FF2491CB1D8F47260065A308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2491CA1D8F47260065A308 /* Assets.xcassets */; };
 		FF2491CE1D8F47260065A308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2491CC1D8F47260065A308 /* LaunchScreen.storyboard */; };
 		FF2491D91D8F47260065A308 /* JustAnotherMessagingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491D81D8F47260065A308 /* JustAnotherMessagingServiceTests.swift */; };
 		FF2491E41D8F47260065A308 /* JustAnotherMessagingServiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491E31D8F47260065A308 /* JustAnotherMessagingServiceUITests.swift */; };
+		FF2491F21D90B9BA0065A308 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		FF2491C01D8F47260065A308 /* JustAnotherMessagingService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustAnotherMessagingService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2491C31D8F47260065A308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF2491C51D8F47260065A308 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF2491C51D8F47260065A308 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FF2491C81D8F47260065A308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF2491CA1D8F47260065A308 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF2491CD1D8F47260065A308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		FF2491DF1D8F47260065A308 /* JustAnotherMessagingServiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustAnotherMessagingServiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2491E31D8F47260065A308 /* JustAnotherMessagingServiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustAnotherMessagingServiceUITests.swift; sourceTree = "<group>"; };
 		FF2491E51D8F47260065A308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				FF2491C31D8F47260065A308 /* AppDelegate.swift */,
-				FF2491C51D8F47260065A308 /* ViewController.swift */,
+				FF2491C51D8F47260065A308 /* LoginViewController.swift */,
 				FF2491C71D8F47260065A308 /* Main.storyboard */,
+				FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */,
 				FF2491CA1D8F47260065A308 /* Assets.xcassets */,
 				FF2491CC1D8F47260065A308 /* LaunchScreen.storyboard */,
 				FF2491CF1D8F47260065A308 /* Info.plist */,
@@ -259,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF2491C61D8F47260065A308 /* ViewController.swift in Sources */,
+				FF2491F21D90B9BA0065A308 /* SignUpViewController.swift in Sources */,
+				FF2491C61D8F47260065A308 /* LoginViewController.swift in Sources */,
 				FF2491C41D8F47260065A308 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,6 +507,7 @@
 				FF2491EA1D8F47260065A308 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF2491EB1D8F47260065A308 /* Build configuration list for PBXNativeTarget "JustAnotherMessagingServiceTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +516,7 @@
 				FF2491ED1D8F47260065A308 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF2491EE1D8F47260065A308 /* Build configuration list for PBXNativeTarget "JustAnotherMessagingServiceUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +525,7 @@
 				FF2491F01D8F47260065A308 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
