@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JustAnotherMessagingService" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="JustAnotherMessagingService" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -60,6 +60,9 @@
                                     <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="oKk-2X-xh4" kind="presentation" id="PGC-P6-3OA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,10 +75,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="PNg-JD-GQC">
             <objects>
-                <viewController id="oKk-2X-xh4" sceneMemberID="viewController">
+                <viewController id="oKk-2X-xh4" customClass="SignUpViewController" customModule="JustAnotherMessagingService" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jur-JI-z6x"/>
                         <viewControllerLayoutGuide type="bottom" id="gz8-vI-Vpr"/>
@@ -132,6 +135,11 @@
                             <constraint firstItem="7Kk-kA-b3H" firstAttribute="centerX" secondItem="TpH-Dy-514" secondAttribute="centerX" id="p0J-dP-4eP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="7Kk-kA-b3H" id="gJz-dX-9Z0"/>
+                        <outlet property="passwordField" destination="cQ3-H9-IK7" id="SlF-9p-uDR"/>
+                        <outlet property="usernameField" destination="TpH-Dy-514" id="Nt6-BR-dOg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0g3-6G-7LN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
