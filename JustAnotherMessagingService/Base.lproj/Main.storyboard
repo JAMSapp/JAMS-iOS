@@ -21,6 +21,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-ck-a3u">
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <segue destination="oKk-2X-xh4" kind="presentation" id="UKg-k4-o5w"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ENS-PK-FFN">
                                 <subviews>
@@ -93,10 +96,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PD2-dt-VYT">
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="hTf-h3-wXv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PD2-dt-VYT" firstAttribute="trailing" secondItem="icZ-hM-mN5" secondAttribute="trailing" id="NXa-6x-ebH"/>
+                            <constraint firstItem="gz8-vI-Vpr" firstAttribute="top" secondItem="PD2-dt-VYT" secondAttribute="bottom" constant="20" id="SuP-AN-A52"/>
                             <constraint firstItem="icZ-hM-mN5" firstAttribute="leading" secondItem="wTd-JT-fLH" secondAttribute="leadingMargin" id="Ycg-FA-DKq"/>
+                            <constraint firstItem="PD2-dt-VYT" firstAttribute="leading" secondItem="icZ-hM-mN5" secondAttribute="leading" id="jlS-xC-GBZ"/>
                             <constraint firstItem="icZ-hM-mN5" firstAttribute="centerY" secondItem="wTd-JT-fLH" secondAttribute="centerY" id="r8a-6G-khu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="icZ-hM-mN5" secondAttribute="trailing" id="wbz-B4-rsw"/>
                         </constraints>
