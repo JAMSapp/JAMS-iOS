@@ -93,6 +93,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlj-c8-LIg">
                                         <state key="normal" title="Sign up"/>
+                                        <connections>
+                                            <action selector="signUpActionWithSender:" destination="oKk-2X-xh4" eventType="touchUpInside" id="9JY-8J-Zbd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

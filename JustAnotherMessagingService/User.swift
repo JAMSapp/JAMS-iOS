@@ -30,5 +30,8 @@ class User {
             return nil
         }
     }
-
+    // Print the obj
+    var description: String {
+        return "Username: \(self.username) Email: \(self.email) UserID: \(self.userID)"
+    }
 }
