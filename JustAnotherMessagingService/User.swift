@@ -24,7 +24,7 @@ class User {
     init(username : String, email: String, userID: String) {
         self.username = username
         self.email = email
-        self.userID = userID;
+        self.userID = userID
         self.firstName = ""
         self.lastName = ""
     }

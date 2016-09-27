@@ -9,6 +9,7 @@
 import XCTest
 @testable import JustAnotherMessagingService
 
+
 class JustAnotherMessagingServiceTests: XCTestCase {
     
     override func setUp() {
@@ -31,6 +32,19 @@ class JustAnotherMessagingServiceTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+// MARK: User Tests
+    // Tests to confirm that the User initializer returns properly.
+    func testUserInitialization() {
+        // Success case without first & last
+        let testUser = User(username : "Test Username", email: "Test@JAMSapp.com", userID: "1234ABCD")
+        XCTAssertNotNil(testUser)
+        
+        // Success case with first & last
+        let testUserFull = User(username : "Test Username", email: "Test@JAMSapp.com", userID: "1234ABCD", first: "Test", last: "User")
+        XCTAssertNotNil(testUserFull)
+
     }
     
 }
