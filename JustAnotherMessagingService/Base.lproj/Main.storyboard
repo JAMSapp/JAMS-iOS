@@ -99,7 +99,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PD2-dt-VYT">
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="hTf-h3-wXv"/>
+                                    <segue destination="OtG-Sa-IfT" kind="unwind" unwindAction="unwindToLogInScreenWithSegue:" id="2Zg-86-1rP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -120,6 +120,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0g3-6G-7LN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OtG-Sa-IfT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="814" y="37"/>
         </scene>
