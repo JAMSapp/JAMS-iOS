@@ -15,26 +15,20 @@ class User {
     
     // MARK: Properties
     var username: String
-    var firstName: String
-    var lastName: String
     var email: String
     var userID: String
     
     // MARK: Initialization
-    init(username : String, email: String, userID: String) {
+    init?(username : String, email: String, userID: String) {
+        // Initialize stored properties.
         self.username = username
         self.email = email
         self.userID = userID
-        self.firstName = ""
-        self.lastName = ""
-    }
-    //If the user provides a first and last name
-    init(username : String, email: String, userID: String, first: String, last: String) {
-        self.username = username
-        self.email = email
-        self.userID = userID;
-        self.firstName = first
-        self.lastName = last
+        
+        // Initialization should fail if one of the user feilds is missing
+        if username.isEmpty || email.isEmpty || userID.isEmpty {
+            return nil
+        }
     }
 
 }

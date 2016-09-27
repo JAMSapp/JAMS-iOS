@@ -34,16 +34,26 @@ class JustAnotherMessagingServiceTests: XCTestCase {
         }
     }
     
-// MARK: User Tests
+// MARK: User Unit Tests
     // Tests to confirm that the User initializer returns properly.
     func testUserInitialization() {
-        // Success case without first & last
-        let testUser = User(username : "Test Username", email: "Test@JAMSapp.com", userID: "1234ABCD")
+        // Success case
+        let testUser = User(username: "Test Username", email: "Test@JAMSapp.com", userID: "1234ABCD")
         XCTAssertNotNil(testUser)
         
-        // Success case with first & last
-        let testUserFull = User(username : "Test Username", email: "Test@JAMSapp.com", userID: "1234ABCD", first: "Test", last: "User")
-        XCTAssertNotNil(testUserFull)
+        // Failure cases
+        // Empty username
+        let failUsername = User(username: "", email: "Test@JAMSapp.com", userID: "1234ABCD")
+        XCTAssertNil(failUsername, "Empty username is invalid")
+        
+        // Empty email
+        let failEmail = User(username: "Test Username", email: "", userID: "1234ABCD")
+        XCTAssertNil(failEmail, "Empty email is invalid")
+        
+        // Empty userID
+        let failUserID = User(username: "Test Username", email: "Test@JAMSapp.com", userID: "")
+        XCTAssertNil(failUserID, "Empty userID is invalid")
+
 
     }
     
