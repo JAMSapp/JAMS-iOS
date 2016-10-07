@@ -39,6 +39,10 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uE-uq-GoU">
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TI3-id-yHF"/>
+                                            <segue destination="ce0-eh-C1v" kind="show" identifier="LoginToHome" id="jRl-Jm-t3Z"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -174,4 +178,7 @@
             <point key="canvasLocation" x="1107" y="-277"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jRl-Jm-t3Z"/>
+    </inferredMetricsTieBreakers>
 </document>
