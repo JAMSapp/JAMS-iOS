@@ -57,6 +57,9 @@ class SignUpViewController: UIViewController {
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
                 // check for http errors
                 print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                if httpStatus.statusCode == 409 {
+                    print("username already taken")
+                }
                 print("response = \(response)")}
             
             // TODO: Check data! != nil
