@@ -10,6 +10,6 @@ import Foundation
 
 struct K {
     struct URL {
-        static let CreateUserPath = "https://#/api/user"
+        static let CreateUserPath = "https://jams.howardisaslut.com/api/user"
     }
 }

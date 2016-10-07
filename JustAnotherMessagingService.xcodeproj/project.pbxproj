@@ -17,6 +17,7 @@
 		FF2491F21D90B9BA0065A308 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */; };
 		FF91586B1D99ECA900BCFCEB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91586A1D99ECA900BCFCEB /* User.swift */; };
 		FFD19F891D9A27E9007AF400 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD19F881D9A27E9007AF400 /* Constants.swift */; };
+		FFD19F8B1DA77FCB007AF400 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD19F8A1DA77FCB007AF400 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FF91586A1D99ECA900BCFCEB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FFD19F881D9A27E9007AF400 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FFD19F8A1DA77FCB007AF400 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				FF2491C31D8F47260065A308 /* AppDelegate.swift */,
 				FF2491C51D8F47260065A308 /* LoginViewController.swift */,
+				FFD19F8A1DA77FCB007AF400 /* HomeViewController.swift */,
 				FF2491C71D8F47260065A308 /* Main.storyboard */,
 				FF91586A1D99ECA900BCFCEB /* User.swift */,
 				FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */,
@@ -273,6 +276,7 @@
 				FF2491F21D90B9BA0065A308 /* SignUpViewController.swift in Sources */,
 				FF2491C61D8F47260065A308 /* LoginViewController.swift in Sources */,
 				FF2491C41D8F47260065A308 /* AppDelegate.swift in Sources */,
+				FFD19F8B1DA77FCB007AF400 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

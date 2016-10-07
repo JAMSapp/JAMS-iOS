@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController {
     // MARK: Sign Up Function
     @IBAction func signUpAction(sender: AnyObject) {
         
-        dismissKeyboard()
+//        dismissKeyboard()
         
         let username = self.usernameField.text
         let password = self.passwordField.text
@@ -53,40 +53,56 @@ class SignUpViewController: UIViewController {
         
         
         
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) -> Void in
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
                 // check for http errors
+                
                 print("statusCode should be 201, but is \(httpStatus.statusCode)")
                 if httpStatus.statusCode == 409 {
+                    let alert = UIAlertController(title: "Alert", message: "Username is already taken", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                     print("username already taken")
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    return
                 }
+            else {
+                    
+            }
                 print("response = \(response)")}
             
             // TODO: Check data! != nil
-            do {
-                
-                let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
-                
-                let userID = object?["Id"] as? String
-                // TODO: Change email
-                let user = User(username: username!, email: "t@tits.com", userID: userID!)
-                print(user?.description)
-                self.performSegue(withIdentifier: "SignUpToHome", sender: sender)
-                
-                
-            } catch {
-                // Handle Error
-                print("User not created")
-            }
-
             if data != nil {
+                // create user then move to home screen.
+                do {
+                    
+                    // MARK: Save User
+                    
+                    let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
+                    
+                    let userID = object?["Id"] as? String
+                    // TODO: Change email
+                    let user = User(username: username!, email: "t@tits.com", userID: userID!)
+                    print("user = \(user?.description)")
+                    
+                    
+                    // MARK: Segue
+                    let login = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! UITableViewController
+                    self.present(login, animated: true)
+
+                    
+                    
+                } catch {
+                    // Handle Error
+                    
+                    print("User not created")
+                }
                 let responseString = String(data: data!, encoding: .utf8)
                 print("responseString = \(responseString)")
             } else {
                 print("Server Unavalible")
             }
         })
-        
         
         task.resume()
         
@@ -98,6 +114,5 @@ class SignUpViewController: UIViewController {
     func dismissKeyboard() {
         passwordField.resignFirstResponder()
     }
-
 
 }

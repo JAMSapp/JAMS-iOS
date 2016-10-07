@@ -99,7 +99,6 @@
                                         <state key="normal" title="Sign up"/>
                                         <connections>
                                             <action selector="signUpActionWithSender:" destination="oKk-2X-xh4" eventType="touchUpInside" id="9JY-8J-Zbd"/>
-                                            <segue destination="ce0-eh-C1v" kind="show" identifier="SignUpToHome" id="k2Z-YJ-bhV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -135,7 +134,7 @@
         <!--Root View Controller-->
         <scene sceneID="Ri1-lP-oFa">
             <objects>
-                <tableViewController id="AN9-Sh-cAV" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AN9-Sh-cAV" customClass="HomeViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SBq-wk-8iK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +177,4 @@
             <point key="canvasLocation" x="1107" y="-277"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="jRl-Jm-t3Z"/>
-    </inferredMetricsTieBreakers>
 </document>
