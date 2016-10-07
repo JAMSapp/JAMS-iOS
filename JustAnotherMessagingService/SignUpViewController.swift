@@ -27,16 +27,20 @@ class SignUpViewController: UIViewController {
     }
 
     
+    // MARK: Sign Up Function
     @IBAction func signUpAction(sender: AnyObject) {
         
         dismissKeyboard()
         
         let username = self.usernameField.text
         let password = self.passwordField.text
+        // TODO: Add email
 //        let email = self.emailField.text
         
         // Set up the url
-        let request = NSMutableURLRequest(url: NSURL(string: K.URL.Path)! as URL)
+        
+        // MARK: Network Calls
+        let request = NSMutableURLRequest(url: NSURL(string: K.URL.CreateUserPath)! as URL)
         let session = URLSession.shared
         request.httpMethod = "POST"
         
@@ -47,27 +51,36 @@ class SignUpViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        
+        
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {           // check for http errors
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
+                // check for http errors
                 print("statusCode should be 201, but is \(httpStatus.statusCode)")
                 print("response = \(response)")}
+            
+            // TODO: Check data! != nil
             do {
+                
                 let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
                 
                 let userID = object?["Id"] as? String
+                // TODO: Change email
                 let user = User(username: username!, email: "t@tits.com", userID: userID!)
                 print(user?.description)
+                self.performSegue(withIdentifier: "SignUpToHome", sender: sender)
                 
                 
             } catch {
                 // Handle Error
+                print("User not created")
             }
 
             if data != nil {
                 let responseString = String(data: data!, encoding: .utf8)
                 print("responseString = \(responseString)")
             } else {
-                print("SERVER NOT RESPONDING")
+                print("Server Unavalible")
             }
         })
         
