@@ -30,83 +30,90 @@ class SignUpViewController: UIViewController {
     // MARK: Sign Up Function
     @IBAction func signUpAction(sender: AnyObject) {
         
-//        dismissKeyboard()
+        dismissKeyboard()
         
-        let username = self.usernameField.text
-        let password = self.passwordField.text
+        var username = self.usernameField.text
+        var password = self.passwordField.text
         // TODO: Add email
 //        let email = self.emailField.text
         
-        // Set up the url
-        
-        // MARK: Network Calls
-        let request = NSMutableURLRequest(url: NSURL(string: K.URL.CreateUserPath)! as URL)
-        let session = URLSession.shared
-        request.httpMethod = "POST"
-        
-        let params = ["username":username!, "password":password!] as Dictionary<String, String>
-        
-        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) -> Void in
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
-                // check for http errors
-                
-                print("statusCode should be 201, but is \(httpStatus.statusCode)")
-                if httpStatus.statusCode == 409 {
-                    let alert = UIAlertController(title: "Alert", message: "Username is already taken", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                    print("username already taken")
-                    self.present(alert, animated: true, completion: nil)
-                    
-                    return
-                }
-            else {
-                    
-            }
-                print("response = \(response)")}
+        // check pasword field
+        if (password?.isEmpty)! {
+            // TODO: Add notifcation
+            print("password is empty")
             
-            // TODO: Check data! != nil
-            if data != nil {
-                // create user then move to home screen.
-                do {
-                    
-                    // MARK: Save User
-                    
-                    let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
-                    
-                    let userID = object?["Id"] as? String
-                    // TODO: Change email
-                    let user = User(username: username!, email: "t@tits.com", userID: userID!)
-                    print("user = \(user?.description)")
-                    
-                    
-                    // MARK: Segue
-                    let login = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! UITableViewController
-                    self.present(login, animated: true)
+        } else {
+            let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100))
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: rect) as UIActivityIndicatorView
+            spinner.startAnimating()
+            
+            // MARK: Network Calls
+            let request = NSMutableURLRequest(url: NSURL(string: K.URL.CreateUserPath)! as URL)
+            let session = URLSession.shared
+            request.httpMethod = "POST"
+            
+            let params = ["username":username!, "password":password!] as Dictionary<String, String>
+            
+            request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            
+            
+            let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) -> Void in
+                
+                spinner.stopAnimating()
+                
+                
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
+                    // check for http errors
 
                     
+                    print("statusCode should be 201, but is \(httpStatus.statusCode)")
                     
-                } catch {
-                    // Handle Error
-                    
-                    print("User not created")
+                    if httpStatus.statusCode == 409 {
+                        // TODO: Add notifcation
+                        print("username already taken")
+                        
+                    }
+                    print("response = \(response)")
+                } else {
+                    do {
+                        let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
+                        
+                        let userID = object?["Id"] as? String
+                        // TODO: Change email
+                        let user = User(username: username!, email: "t@tits.com", userID: userID!)
+                        print("user = \(user?.description)")
+                        
+                        
+                        // MARK: Segue
+                        DispatchQueue.main.async {
+                            let login = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! UITableViewController
+                            self.present(login, animated: true)}
+
+                    } catch {
+                        // Handle Error
+                        
+                        print("User not created")
+                    }
                 }
-                let responseString = String(data: data!, encoding: .utf8)
-                print("responseString = \(responseString)")
-            } else {
-                print("Server Unavalible")
-            }
-        })
-        
-        task.resume()
-        
+                
+                // TODO: Check data! != nil
+                if data != nil {
+                    let responseString = String(data: data!, encoding: .utf8)
+                    print("responseString = \(responseString)")
+                } else {
+                    print("Server Unavalible")
+                }
+            })
+            
+            task.resume()
+            
 
+        }
+        
     }
     
     // MARK: Keyboard dismissal
