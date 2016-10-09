@@ -32,8 +32,8 @@ class SignUpViewController: UIViewController {
         
         dismissKeyboard()
         
-        var username = self.usernameField.text
-        var password = self.passwordField.text
+        let username = self.usernameField.text
+        let password = self.passwordField.text
         // TODO: Add email
 //        let email = self.emailField.text
         
@@ -42,7 +42,12 @@ class SignUpViewController: UIViewController {
             // TODO: Add notifcation
             print("password is empty")
             
-        } else {
+        } else if (username?.isEmpty)! {
+            // TODO: Add notifcation
+            print("username is empty")
+            
+        }
+        else {
             let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100))
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: rect) as UIActivityIndicatorView
             spinner.startAnimating()
