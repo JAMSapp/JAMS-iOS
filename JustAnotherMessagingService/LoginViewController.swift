@@ -27,5 +27,19 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func loginAction(_ sender: UIButton) {
+        
+        dismissKeyboard()
+        
+        
+        
+    }
+    // MARK: Keyboard dismissal
+    
+    func dismissKeyboard() {
+        passwordField.resignFirstResponder()
+    }
+
 }
 
+    
