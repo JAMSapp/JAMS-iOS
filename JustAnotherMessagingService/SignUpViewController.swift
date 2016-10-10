@@ -17,6 +17,9 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
+    @IBOutlet weak var usernameErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
+    
     override func viewDidLoad() {
         spinner.hidesWhenStopped = true;
         spinner.activityIndicatorViewStyle  = UIActivityIndicatorViewStyle.gray;
@@ -36,19 +39,30 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpAction(sender: AnyObject) {
         
         dismissKeyboard()
+        self.usernameErrorLabel.isHidden = true
+        self.passwordErrorLabel.isHidden = true
+
         
         let username = self.usernameField.text
         let password = self.passwordField.text
         // TODO: Add email
 //        let email = self.emailField.text
         
-        // check pasword field
-        if (password?.isEmpty)! {
-            // TODO: Add notifcation
+        // Check username and password fields
+        if ((password?.isEmpty)! && (username?.isEmpty)!) {
+            self.usernameErrorLabel.text = "Username cannot be empty"
+            self.usernameErrorLabel.isHidden = false
+            self.passwordErrorLabel.isHidden = false
+            print("username && password are empty")
+        }// check pasword field
+        else if (password?.isEmpty)! {
+            self.passwordErrorLabel.isHidden = false
             print("password is empty")
             
-        } else if (username?.isEmpty)! {
-            // TODO: Add notifcation
+        } // check username field
+        else if (username?.isEmpty)! {
+            self.usernameErrorLabel.text = "Username cannot be empty"
+            self.usernameErrorLabel.isHidden = false
             print("username is empty")
             
         }
@@ -86,7 +100,10 @@ class SignUpViewController: UIViewController {
                     print("statusCode should be 201, but is \(httpStatus.statusCode)")
                     
                     if httpStatus.statusCode == 409 {
-                        // TODO: Add notifcation
+                        DispatchQueue.main.async {
+                            self.usernameErrorLabel.text = "Username is already taken"
+                            self.usernameErrorLabel.isHidden = false
+                        }
                         print("username already taken")
                         
                     }
@@ -120,6 +137,8 @@ class SignUpViewController: UIViewController {
                 
             })
             
+//            self.usernameErrorLabel.isHidden = true
+//            self.passwordErrorLabel.isHidden = true
             task.resume()
             
 
