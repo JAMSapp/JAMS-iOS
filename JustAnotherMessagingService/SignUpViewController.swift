@@ -39,6 +39,9 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpAction(sender: AnyObject) {
         
         dismissKeyboard()
+        self.usernameErrorLabel.isHidden = true
+        self.passwordErrorLabel.isHidden = true
+
         
         let username = self.usernameField.text
         let password = self.passwordField.text
@@ -134,8 +137,8 @@ class SignUpViewController: UIViewController {
                 
             })
             
-            self.usernameErrorLabel.isHidden = true
-            self.passwordErrorLabel.isHidden = true
+//            self.usernameErrorLabel.isHidden = true
+//            self.passwordErrorLabel.isHidden = true
             task.resume()
             
 
