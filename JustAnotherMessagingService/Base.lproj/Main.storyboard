@@ -105,6 +105,7 @@
                                     <segue destination="OtG-Sa-IfT" kind="unwind" unwindAction="unwindToLogInScreenWithSegue:" id="2Zg-86-1rP"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HLa-mp-uK8"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -114,11 +115,14 @@
                             <constraint firstItem="PD2-dt-VYT" firstAttribute="leading" secondItem="icZ-hM-mN5" secondAttribute="leading" id="jlS-xC-GBZ"/>
                             <constraint firstItem="icZ-hM-mN5" firstAttribute="centerY" secondItem="wTd-JT-fLH" secondAttribute="centerY" id="r8a-6G-khu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="icZ-hM-mN5" secondAttribute="trailing" id="wbz-B4-rsw"/>
+                            <constraint firstItem="HLa-mp-uK8" firstAttribute="centerY" secondItem="icZ-hM-mN5" secondAttribute="centerY" id="zPV-CM-Yg0"/>
+                            <constraint firstItem="HLa-mp-uK8" firstAttribute="centerX" secondItem="icZ-hM-mN5" secondAttribute="centerX" id="zU1-OM-tpx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="BVS-sx-EMg" id="Pm5-Tu-GeQ"/>
                         <outlet property="passwordField" destination="kKA-3K-Th6" id="ySu-BI-lQt"/>
+                        <outlet property="spinner" destination="HLa-mp-uK8" id="e9t-D0-CGI"/>
                         <outlet property="usernameField" destination="dUD-9q-pEX" id="h7N-MT-6Tp"/>
                     </connections>
                 </viewController>
@@ -140,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Wx-K5-0KA" id="Ur3-iS-jwd">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

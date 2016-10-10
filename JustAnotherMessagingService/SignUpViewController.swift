@@ -15,8 +15,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
 
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
+        spinner.hidesWhenStopped = true;
+        spinner.activityIndicatorViewStyle  = UIActivityIndicatorViewStyle.gray;
+        spinner.center = view.center;
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -48,9 +53,8 @@ class SignUpViewController: UIViewController {
             
         }
         else {
-            let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100))
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: rect) as UIActivityIndicatorView
-            spinner.startAnimating()
+
+            self.spinner.startAnimating()
             
             // MARK: Network Calls
             let request = NSMutableURLRequest(url: NSURL(string: K.URL.CreateUserPath)! as URL)
@@ -68,7 +72,7 @@ class SignUpViewController: UIViewController {
             
             let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) -> Void in
                 
-                spinner.stopAnimating()
+                self.spinner.stopAnimating()
                 
                 
                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
@@ -84,34 +88,31 @@ class SignUpViewController: UIViewController {
                     }
                     print("response = \(response)")
                 } else {
-                    do {
-                        let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
-                        
-                        let userID = object?["Id"] as? String
-                        // TODO: Change email
-                        let user = User(username: username!, email: "t@tits.com", userID: userID!)
-                        print("user = \(user?.description)")
-                        
-                        
-                        // MARK: Segue
-                        DispatchQueue.main.async {
-                            let login = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! UITableViewController
-                            self.present(login, animated: true)}
+                    if data != nil {
+                        do {
+                            let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
+                            
+                            let userID = object?["Id"] as? String
+                            // TODO: Change email
+                            let user = User(username: username!, email: "t@tits.com", userID: userID!)
+                            print("user = \(user?.description)")
+                            
+                            
+                            // MARK: Segue
+                            DispatchQueue.main.async {
+                                let login = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! UITableViewController
+                                self.present(login, animated: true)}
+                            let responseString = String(data: data!, encoding: .utf8)
+                            print("responseString = \(responseString)")
 
-                    } catch {
-                        // Handle Error
-                        
-                        print("User not created")
+                            
+                        } catch {
+                            // Handle Error
+                            print("User not created")
+                        }
                     }
                 }
                 
-                // TODO: Check data! != nil
-                if data != nil {
-                    let responseString = String(data: data!, encoding: .utf8)
-                    print("responseString = \(responseString)")
-                } else {
-                    print("Server Unavalible")
-                }
             })
             
             task.resume()
@@ -126,5 +127,5 @@ class SignUpViewController: UIViewController {
     func dismissKeyboard() {
         passwordField.resignFirstResponder()
     }
-
+    
 }
