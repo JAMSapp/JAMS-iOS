@@ -72,6 +72,7 @@ class SignUpViewController: UIViewController {
             
             let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) -> Void in
 
+                // Make all UI calls on the main thread.
                 DispatchQueue.main.async {
                     self.spinner.stopAnimating()
                 }
@@ -104,7 +105,8 @@ class SignUpViewController: UIViewController {
                             // MARK: Segue
                             DispatchQueue.main.async {
                                 let login = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! UITableViewController
-                                self.present(login, animated: true)}
+                                self.present(login, animated: true)
+                            }
                             let responseString = String(data: data!, encoding: .utf8)
                             print("responseString = \(responseString)")
 
