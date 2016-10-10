@@ -30,12 +30,9 @@ class User {
             return nil
         }
     }
-<<<<<<< HEAD
     // Print the obj
     var description: String {
         return "Username: \(self.username) Email: \(self.email) UserID: \(self.userID)"
     } 
-=======
 
->>>>>>> origin/master
 }
