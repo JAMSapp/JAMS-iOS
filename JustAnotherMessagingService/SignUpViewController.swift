@@ -71,8 +71,11 @@ class SignUpViewController: UIViewController {
             
             
             let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) -> Void in
+
+                DispatchQueue.main.async {
+                    self.spinner.stopAnimating()
+                }
                 
-                self.spinner.stopAnimating()
                 
                 
                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
