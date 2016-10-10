@@ -16,8 +16,11 @@
 		FF2491E41D8F47260065A308 /* JustAnotherMessagingServiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491E31D8F47260065A308 /* JustAnotherMessagingServiceUITests.swift */; };
 		FF2491F21D90B9BA0065A308 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */; };
 		FF91586B1D99ECA900BCFCEB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91586A1D99ECA900BCFCEB /* User.swift */; };
+<<<<<<< HEAD
 		FFD19F891D9A27E9007AF400 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD19F881D9A27E9007AF400 /* Constants.swift */; };
 		FFD19F8B1DA77FCB007AF400 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD19F8A1DA77FCB007AF400 /* HomeViewController.swift */; };
+=======
+>>>>>>> origin/master
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +56,11 @@
 		FF2491E51D8F47260065A308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF2491F11D90B9BA0065A308 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FF91586A1D99ECA900BCFCEB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		FFD19F881D9A27E9007AF400 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFD19F8A1DA77FCB007AF400 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> origin/master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				FFD19F891D9A27E9007AF400 /* Constants.swift in Sources */,
+=======
+>>>>>>> origin/master
 				FF91586B1D99ECA900BCFCEB /* User.swift in Sources */,
 				FF2491F21D90B9BA0065A308 /* SignUpViewController.swift in Sources */,
 				FF2491C61D8F47260065A308 /* LoginViewController.swift in Sources */,
