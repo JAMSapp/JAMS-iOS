@@ -271,10 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				FFD19F891D9A27E9007AF400 /* Constants.swift in Sources */,
-=======
->>>>>>> origin/master
 				FF91586B1D99ECA900BCFCEB /* User.swift in Sources */,
 				FF2491F21D90B9BA0065A308 /* SignUpViewController.swift in Sources */,
 				FF2491C61D8F47260065A308 /* LoginViewController.swift in Sources */,
